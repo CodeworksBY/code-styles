@@ -1,4 +1,4 @@
-# Codeworks Style-guides
+# Codeworks style guides
 
 - [HTML/CSS](#html-css)
 - [AngularJS](#angular)
