@@ -7,6 +7,9 @@
 - [CSS](#2)
   - [Правила] (#2.1)
 - [Angular](#3)
+  - [Структура](#3.1)
+  - [Правила](#3.2)
+
 
 <a id="1"></a>
 ## HTML
@@ -112,4 +115,52 @@
 - Подключать все less файлы с помощью @import в основной файл less;
 
 <a id="3"></a>
-## AngularJS
+## Angular
+
+<a id="3.1"></a>
+### Структура
+
+Разделение по типам компонентов, затем по функциональности.
+```
+├── app
+│   ├── app.js
+│   ├── controllers
+│   │   ├── home
+│   │   │   ├── FirstCtrl.js
+│   │   │   └── SecondCtrl.js
+│   │   └── about
+│   │       └── ThirdCtrl.js
+│   ├── directives
+│   │   ├── home
+│   │   │   └── directive1.js
+│   │   └── about
+│   │       ├── directive2.js
+│   │       └── directive3.js
+│   ├── filters
+│   │   ├── home
+│   │   └── about
+│   └── services
+│       ├── CommonService.js
+│       ├── cache
+│       │   ├── Cache1.js
+│       │   └── Cache2.js
+│       └── models
+│           ├── Model1.js
+│           └── Model2.js
+├── partials
+├── lib
+```
+<a id="3.2"></a>
+### Правила
+
+- Если имя каталога состоит из нескольких слов, используйте разделение в стиле lisp:
+```
+app
+ ├── app.js
+ └── my-complex-module
+     ├── controllers
+     ├── directives
+     ├── filters
+     └── services
+```
+- Файл `app.js` должен содержать определения маршрутов, конфигурацию и/или начальную инициализацию (если требуется);
