@@ -10,6 +10,9 @@
   - [Структура](#3.1)
   - [Правила](#3.2)
   - [Модули](#3.3)
+  - [Контроллеры](#3.4)
+ 
+  
 
 <a id="1"></a>
 ## HTML
@@ -264,3 +267,22 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
 
 - Для определения иерархии:
 например, что модуль `b` является подмодулем `a`, используйте пространства имён: `a.b`.
+
+
+<a id="3.4"></a>
+### Контроллеры
+
+#### Шаблон
+```
+(function() {
+  "use strict";
+  
+  angular
+    .module('myApp')
+    .controller('MainController', ['dependency',
+    function(dependency) {
+      var self = this;
+    }]);
+  
+})();
+```
