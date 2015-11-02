@@ -331,20 +331,17 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
         restrict: 'EA',
         templateUrl: 'templateUrl',
         link: linkFunc,
-        controller: Controller,
-        controllerAs: 'ctrl'
+        controller: ['dependencies', Controller]
       }
       
       function linkFunc(scope, el, attr) {
 
       }
-    });
-    
-    Controller.$inject = ['dependencies'];
 
-    function Controller(dependencies) {
+      function Controller(dependencies) {
         var self = this;
-    }
-  
+      }
+    });
+
 })();
 ```
