@@ -12,7 +12,10 @@
   - [Модули](#3.3)
   - [Контроллеры](#3.4)
   - [Директивы](#3.5)
-  
+  - [Сервисы](#3.6)
+  - [Фабрики](#3.7)
+  - [Фильтры](#3.8)
+
 
 <a id="1"></a>
 ## HTML
@@ -327,12 +330,14 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
     .module('myApp')
     .directive('prefix-myDirective',
     function() {
-      return {
+      var directive = {
         restrict: 'EA',
         templateUrl: 'templateUrl',
         link: linkFunc,
         controller: ['dependencies', Controller]
       }
+      
+      return directive;
       
       function linkFunc(scope, el, attr) {
 
@@ -363,3 +368,74 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
 - Определяйте директивы через атрибуты или элементы, не используйте для этого классы или комментарии;
 
 - Не забывайте про `$sce`, когда работаете с непроверенным контентом.
+
+
+<a id="3.6"></a>
+### Сервисы
+
+#### Шаблон
+```
+(function() {
+  "use strict";
+  
+  angular
+    .module('myApp')
+    .service('Service', ['dependencies',
+    function(dependencies) {
+      var self = this;
+      self.func = func;
+
+      function func() {
+      
+      }
+    }]);
+    
+})();
+```
+
+<a id="3.7"></a>
+### Фабрики
+
+#### Шаблон
+```
+(function() {
+  "use strict";
+  
+  angular
+    .module('myApp')
+    .factory('factory', ['dependencies',
+    function(dependencies) {
+      var service = {
+        func: func
+      };
+      
+      return service;
+      
+      function func() {
+      
+      }
+    }]);
+    
+})();
+```
+
+<a id="3.8"></a>
+### Фильтры
+
+#### Шаблон
+```
+(function() {
+  "use strict";
+  
+  angular
+    .module('myApp')
+    .filter('filter', function() {
+      return filter
+
+      function filter(params) {
+        return params;
+      }
+    }]);
+    
+})();
+```
