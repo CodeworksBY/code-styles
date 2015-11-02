@@ -435,7 +435,7 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
       function filter(params) {
         return params;
       }
-    }]);
+    });
     
 })();
 ```
