@@ -219,7 +219,7 @@ app
   
   ...
   
-)());
+})();
 ```
 
 - Разрешайте все зависимости с помощью Dependency Injection;
@@ -247,9 +247,20 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
 <a id="3.3"></a>
 ### Модули
 
+#### Шаблон
+```
+(function() {
+  "use strict";
+  
+  angular.module('myApp', [])
+    .config(function() {
+    
+    });
+  
+})();
+```
+
 - Названия модулей должны соответстовать подходу lowerCamelCase:
-```
-angular.module('myApp', []);
-```
+
 - Для определения иерархии:
 например, что модуль `b` является подмодулем `a`, используйте пространства имён: `a.b`.
