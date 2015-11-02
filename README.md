@@ -11,7 +11,7 @@
   - [Правила](#3.2)
   - [Модули](#3.3)
   - [Контроллеры](#3.4)
- 
+  - [Директивы](#3.5)
   
 
 <a id="1"></a>
@@ -279,8 +279,8 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
   
   angular
     .module('myApp')
-    .controller('MainController', ['dependency',
-    function(dependency) {
+    .controller('MainController', ['dependencies',
+    function(dependencies) {
       var self = this;
     }]);
   
@@ -313,3 +313,38 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
 - Количество `$emit` и `$broadcast` сообщений должно быть сведено к минимуму;
 
 - Если вам нужно отформатировать данные, перенесите логику форматирования в фильтр и укажите его как зависимость:
+
+
+<a id="3.5"></a>
+### Директивы
+
+#### Шаблон
+```
+(function() {
+  "use strict";
+  
+  angular
+    .module('myApp')
+    .directive('myDirective',
+    function() {
+      return {
+        restrict: 'EA',
+        templateUrl: 'templateUrl',
+        link: linkFunc,
+        controller: Controller,
+        controllerAs: 'ctrl'
+      }
+      
+      function linkFunc(scope, el, attr) {
+
+      }
+    });
+    
+    Controller.$inject = ['dependencies'];
+
+    function Controller(dependencies) {
+        var self = this;
+    }
+  
+})();
+```
