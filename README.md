@@ -430,7 +430,7 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
   angular
     .module('myApp')
     .filter('filter', function() {
-      return filter
+      return filter;
 
       function filter(params) {
         return params;
