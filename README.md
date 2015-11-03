@@ -339,19 +339,13 @@ function ($rootScope, $timeout, MyCustomDependency1, MyCustomDependency2) {
       var directive = {
         restrict: 'EA',
         templateUrl: 'templateUrl',
-        link: link,
-        controller: ['dependencies', Controller]
+        link: function link(scope, el, attr) {
+
+        }
       }
       
       return directive;
       
-      function link(scope, el, attr) {
-
-      }
-
-      function Controller(dependencies) {
-        var self = this;
-      }
     });
 
 })();
