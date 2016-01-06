@@ -133,16 +133,16 @@
 │   ├── app.js
 │   ├── controllers
 │   │   ├── home
-│   │   │   ├── FirstCtrl.js
-│   │   │   └── SecondCtrl.js
+│   │   │   ├── FirstController.js
+│   │   │   └── SecondController.js
 │   │   └── about
-│   │       └── ThirdCtrl.js
+│   │       └── ThirdController.js
 │   ├── directives
 │   │   ├── home
-│   │   │   └── directive1.js
+│   │   │   └── prefixDirective1.js
 │   │   └── about
-│   │       ├── directive2.js
-│   │       └── directive3.js
+│   │       ├── prefixDirective2.js
+│   │       └── prefixDirective3.js
 │   ├── filters
 │   │   ├── home
 │   │   └── about
